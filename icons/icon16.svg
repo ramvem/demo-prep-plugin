@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16" height="16" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="screenGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#4A90E2;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#357ABD;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Screen background -->
+  <rect x="1.6" y="1.6" width="12.8" height="8.32"
+        fill="url(#screenGradient)" stroke="#2C3E50" stroke-width="1"/>
+
+  <!-- Presentation elements -->
+  <!-- Title bar -->
+  <rect x="4" y="4" width="8" height="0.8"
+        fill="rgba(255, 255, 255, 0.9)"/>
+
+  <!-- Content bars -->
+  <rect x="4" y="5.28" width="3.84" height="0.5599999999999999"
+        fill="rgba(255, 255, 255, 0.9)"/>
+  <rect x="4" y="6.176" width="4.608" height="0.5599999999999999"
+        fill="rgba(255, 255, 255, 0.9)"/>
+  <rect x="4" y="7.072" width="3.072" height="0.5599999999999999"
+        fill="rgba(255, 255, 255, 0.9)"/>
+
+  <!-- Stand pole -->
+  <rect x="7.360000000000001" y="9.92" width="1.28" height="2.4" fill="#2C3E50"/>
+
+  <!-- Stand base -->
+  <rect x="5.4399999999999995" y="11.36" width="5.120000000000001" height="0.96" fill="#2C3E50"/>
+
+  <!-- Demo indicator dot -->
+  <circle cx="11.2" cy="4.800000000000001" r="0.96" fill="#E74C3C"/>
+  <circle cx="10.911999999999999" cy="4.5120000000000005" r="0.384"
+          fill="rgba(255, 255, 255, 0.4)"/>
+</svg>

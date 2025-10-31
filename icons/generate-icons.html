@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Generate Icons</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f0f0f0;
+    }
+    canvas {
+      margin: 10px;
+      border: 1px solid #ccc;
+    }
+    .icon-container {
+      display: inline-block;
+      margin: 20px;
+      text-align: center;
+    }
+    button {
+      margin: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>Demo Prep Tool Icons</h1>
+  <p>Right-click on each icon and "Save image as..." to save the PNG files.</p>
+
+  <div class="icon-container">
+    <canvas id="icon16" width="16" height="16"></canvas>
+    <p>icon16.png</p>
+  </div>
+
+  <div class="icon-container">
+    <canvas id="icon32" width="32" height="32"></canvas>
+    <p>icon32.png</p>
+  </div>
+
+  <div class="icon-container">
+    <canvas id="icon48" width="48" height="48"></canvas>
+    <p>icon48.png</p>
+  </div>
+
+  <div class="icon-container">
+    <canvas id="icon128" width="128" height="128"></canvas>
+    <p>icon128.png</p>
+  </div>
+
+  <script>
+    // Function to draw presentation screen icon
+    function drawIcon(canvas) {
+      const ctx = canvas.getContext('2d');
+      const size = canvas.width;
+
+      // Clear canvas
+      ctx.clearRect(0, 0, size, size);
+
+      // Calculate proportions based on size
+      const padding = size * 0.1;
+      const screenWidth = size - (padding * 2);
+      const screenHeight = screenWidth * 0.65;
+      const screenX = padding;
+      const screenY = padding;
+
+      // Draw screen background (gradient)
+      const gradient = ctx.createLinearGradient(screenX, screenY, screenX, screenY + screenHeight);
+      gradient.addColorStop(0, '#4A90E2');
+      gradient.addColorStop(1, '#357ABD');
+      ctx.fillStyle = gradient;
+      ctx.fillRect(screenX, screenY, screenWidth, screenHeight);
+
+      // Draw screen border
+      ctx.strokeStyle = '#2C3E50';
+      ctx.lineWidth = Math.max(1, size * 0.02);
+      ctx.strokeRect(screenX, screenY, screenWidth, screenHeight);
+
+      // Draw presentation elements (bars representing content)
+      const barPadding = size * 0.15;
+      const barWidth = screenWidth * 0.3;
+      const barHeight = size * 0.05;
+      const barX = screenX + barPadding;
+      const barY = screenY + barPadding;
+      const barSpacing = size * 0.08;
+
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.9)';
+
+      // Title bar (wider)
+      ctx.fillRect(barX, barY, screenWidth - (barPadding * 2), barHeight);
+
+      // Content bars
+      ctx.fillRect(barX, barY + barSpacing, barWidth, barHeight * 0.7);
+      ctx.fillRect(barX, barY + barSpacing * 1.7, barWidth * 1.2, barHeight * 0.7);
+      ctx.fillRect(barX, barY + barSpacing * 2.4, barWidth * 0.8, barHeight * 0.7);
+
+      // Draw screen stand
+      const standWidth = screenWidth * 0.3;
+      const standHeight = size * 0.12;
+      const standX = screenX + (screenWidth - standWidth) / 2;
+      const standY = screenY + screenHeight;
+
+      ctx.fillStyle = '#2C3E50';
+
+      // Stand pole
+      const poleWidth = size * 0.08;
+      const poleHeight = size * 0.15;
+      const poleX = screenX + (screenWidth - poleWidth) / 2;
+      ctx.fillRect(poleX, standY, poleWidth, poleHeight);
+
+      // Stand base
+      const baseWidth = screenWidth * 0.4;
+      const baseHeight = size * 0.06;
+      const baseX = screenX + (screenWidth - baseWidth) / 2;
+      const baseY = standY + poleHeight - baseHeight;
+      ctx.fillRect(baseX, baseY, baseWidth, baseHeight);
+
+      // Add "play" or "demo" indicator (small circle/dot)
+      const dotRadius = size * 0.06;
+      const dotX = screenX + screenWidth - (padding * 2);
+      const dotY = screenY + (padding * 2);
+
+      ctx.fillStyle = '#E74C3C';
+      ctx.beginPath();
+      ctx.arc(dotX, dotY, dotRadius, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Add subtle shine to the dot
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.4)';
+      ctx.beginPath();
+      ctx.arc(dotX - dotRadius * 0.3, dotY - dotRadius * 0.3, dotRadius * 0.4, 0, Math.PI * 2);
+      ctx.fill();
+    }
+
+    // Generate all icons
+    ['icon16', 'icon32', 'icon48', 'icon128'].forEach(id => {
+      const canvas = document.getElementById(id);
+      drawIcon(canvas);
+    });
+  </script>
+</body>
+</html>

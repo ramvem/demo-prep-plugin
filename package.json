@@ -1,0 +1,29 @@
+{
+  "name": "demo-prep-tool",
+  "version": "1.0.0",
+  "description": "Browser extension for preparing demos by clearing cookies and navigating to configured URLs",
+  "main": "background.js",
+  "scripts": {
+    "check": "node -e \"JSON.parse(require('fs').readFileSync('manifest.json', 'utf8')); console.log('✓ Extension files validated')\"",
+    "generate-icons": "cd icons && node generate-icons.js"
+  },
+  "keywords": [
+    "browser-extension",
+    "chrome-extension",
+    "edge-extension",
+    "demo",
+    "cookies",
+    "demo-preparation"
+  ],
+  "author": "",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "browser": {
+    "chrome": ">=88.0.0",
+    "edge": ">=88.0.0"
+  },
+  "devDependencies": {}
+}
